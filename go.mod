@@ -4,14 +4,16 @@ go 1.18
 
 require (
 	github.com/georgysavva/scany v1.0.0
+	github.com/jackc/pgconn v1.12.1
 	github.com/jackc/pgx/v4 v4.16.1
+	github.com/jmoiron/sqlx v1.3.1
 	github.com/kelseyhightower/envconfig v1.4.0
+	github.com/lib/pq v1.10.2
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
 )
 
 require (
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
-	github.com/jackc/pgconn v1.12.1 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgproto3/v2 v2.3.0 // indirect
