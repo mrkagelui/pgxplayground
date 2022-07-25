@@ -1,0 +1,21 @@
+version: '3'
+services:
+  database:
+    image: postgres:13-alpine
+    ports:
+      - "${DOCKER_HOST_POSTGRES_PORT:-5442}:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=pgxplayground
+
+  migrate:
+    container_name: pgxplayground-migrate-local
+    image: migrate/migrate:v4.15.1
+    restart: "no"
+    depends_on:
+      - database
+    volumes:
+      - ./migrations:/migrations
+    entrypoint: [ "migrate", "--path=/migrations", "--database=postgres://user:password@database:5432/pgxplayground?sslmode=disable" ]
+    command: [ "up" ]
